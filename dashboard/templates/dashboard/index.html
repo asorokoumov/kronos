@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+  <img src="https://trucker.group/lite//img/logo.2cc9c42d.svg" alt="Trucker">
+
+    <br/>
+    <br/>
+  <span class="badge badge-danger">Перевозчик не найден</span>
+     <span class="badge badge-primary">Перевозчик найден</span>
+      <span class="badge badge-success">Заказ выполнен</span>
+
+    <p> Заказ не подтвержден - <button type="button" class="btn btn-outline-danger"> </button></p>
+
+
+
+     <!-- <span class="badge badge-danger">Заказ отменен</span>-->
+
+  <button type="button" class="btn btn-success">Создать заказ</button>
+    <br/>
+    <br/>
+
+
+<table class="table table-bordered table-sm table-striped">
+ <thead class="thead-dark">
+    <tr>
+      <th style="width: 3%" scope="col">Откуда</th>
+      <th style="width: 3%" scope="col">Куда</th>
+
+      <th style="width: 3%" scope="col">1</th>
+      <th style="width: 3%" scope="col">2</th>
+      <th style="width: 3%" scope="col">3</th>
+      <th style="width: 3%" scope="col">4</th>
+      <th style="width: 3%" scope="col">5</th>
+      <th style="width: 3%" scope="col">6</th>
+      <th style="width: 3%" scope="col">7</th>
+      <th style="width: 3%" scope="col">8</th>
+      <th style="width: 3%" scope="col">9</th>
+      <th style="width: 3%" scope="col">10</th>
+      <th style="width: 3%" scope="col">11</th>
+      <th style="width: 3%" scope="col">12</th>
+      <th style="width: 3%" scope="col">13</th>
+      <th style="width: 3%" scope="col">14</th>
+      <th style="width: 3%" scope="col">15</th>
+      <th style="width: 3%" scope="col">16</th>
+      <th style="width: 3%" scope="col">17</th>
+      <th style="width: 3%" scope="col">18</th>
+      <th style="width: 3%" scope="col">19</th>
+      <th style="width: 3%" scope="col">20</th>
+      <th style="width: 3%" scope="col">21</th>
+      <th style="width: 3%" scope="col">22</th>
+      <th style="width: 3%" scope="col">23</th>
+      <th style="width: 3%" scope="col">24</th>
+      <th style="width: 3%" scope="col">25</th>
+      <th style="width: 3%" scope="col">26</th>
+      <th style="width: 3%" scope="col">27</th>
+      <th style="width: 3%" scope="col">28</th>
+      <th style="width: 3%" scope="col">29</th>
+      <th style="width: 3%" scope="col">30</th>
+      <th style="width: 3%" scope="col">31</th>
+
+    </tr>
+  </thead>
+  <tbody>
+      {% for destination in destinations %}
+    <tr>
+      <th scope="row">{{destination.0}}</th>
+      <th scope="row">{{destination.1}}</th>
+        {%for day in destination.2%}
+          <th scope="col">
+            {%for order in day %}
+              {%if order.status == 8%}
+            <!---    <button type="button" class="btn btn-danger btn-sm"></button>--->
+              {%elif order.status == 3%}
+                <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#exampleModal" data-order_id="{{order.id}}"  data-order_description="{{order.description}}" data-order_date_from="{{order.date_from|date:'Y-m-d'}}" data-order_date_to="{{order.date_from|date:'Y-m-d'}}"></button>
+              {%elif order.status == 6 or order.status == 9%}
+                <button type="button" class="btn btn-outline-danger"  data-toggle="modal" data-target="#exampleModal" data-order_id="{{order.id}}"  data-order_description="{{order.description}}" data-order_date_from="{{order.date_from|date:'Y-m-d'}}" data-order_date_to="{{order.date_from|date:'Y-m-d'}}"></button>
+              {%elif order.status == 7%}
+                <button type="button" class="btn btn-outline-primary"  data-toggle="modal" data-target="#exampleModal" data-order_id="{{order.id}}"  data-order_description="{{order.description}}" data-order_date_from="{{order.date_from|date:'Y-m-d'}}" data-order_date_to="{{order.date_from|date:'Y-m-d'}}"></button>
+              {%else%}
+                {{order.status}}-{{order.id}}<br/>
+              {%endif%}
+            {%endfor%}
+          </th>
+        {%endfor%}
+
+    </tr>
+      {%endfor%}
+
+  </tbody>
+</table>
+
+
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Заказ -</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                <label class="custom-control-label" for="customSwitch1">Актуален</label>
+              </div>
+
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Комментарий:</label>
+                <textarea class="form-control" id="message-text"></textarea>
+              </div>
+              <div class="form-group">
+               <label >Дата погрузки:</label>
+               <input type="date" name="bday" max="3000-12-31"  id="date-from"
+                      min="1000-01-01" class="form-control">
+              </div>
+              <div class="form-group">
+               <label >Дата выгрузки:</label>
+               <input type="date" name="bday" min="1000-01-01"  id="date-to"
+                      max="3000-12-31" class="form-control">
+              </div>
+
+
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+            <button type="button" class="btn btn-danger">Отменить</button>
+            <button type="button" class="btn btn-primary">Сохранить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script>
+         $(document).ready(function() {
+
+          $('#exampleModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var order_id = button.data('order_id') // Extract info from data-* attributes
+            var order_description = button.data('order_description') // Extract info from data-* attributes
+            var order_date_from = button.data('order_date_from') // Extract info from data-* attributes
+            var order_date_to = button.data('order_date_from') // Extract info from data-* attributes
+
+            var modal = $(this)
+            modal.find('.modal-title').text('Заказ ' + order_id)
+            modal.find('#message-text').val(order_description)
+            modal.find('#date-from').val(order_date_from)
+            modal.find('#date-to').val(order_date_to)
+          });
+        });
+    </script>
+
+  </body>
+</html>
