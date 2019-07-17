@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Заказы Trucker</title>
   </head>
   <body>
   <img src="https://trucker.group/lite//img/logo.2cc9c42d.svg" alt="Trucker">
@@ -31,42 +31,45 @@
 
 
 <table class="table table-bordered table-sm table-striped">
+
  <thead class="thead-dark">
     <tr>
+    {% now "d" as today%}
+
       <th style="width: 3%" scope="col">Откуда</th>
       <th style="width: 3%" scope="col">Куда</th>
 
-      <th style="width: 3%" scope="col">1</th>
-      <th style="width: 3%" scope="col">2</th>
-      <th style="width: 3%" scope="col">3</th>
-      <th style="width: 3%" scope="col">4</th>
-      <th style="width: 3%" scope="col">5</th>
-      <th style="width: 3%" scope="col">6</th>
-      <th style="width: 3%" scope="col">7</th>
-      <th style="width: 3%" scope="col">8</th>
-      <th style="width: 3%" scope="col">9</th>
-      <th style="width: 3%" scope="col">10</th>
-      <th style="width: 3%" scope="col">11</th>
-      <th style="width: 3%" scope="col">12</th>
-      <th style="width: 3%" scope="col">13</th>
-      <th style="width: 3%" scope="col">14</th>
-      <th style="width: 3%" scope="col">15</th>
-      <th style="width: 3%" scope="col">16</th>
-      <th style="width: 3%" scope="col">17</th>
-      <th style="width: 3%" scope="col">18</th>
-      <th style="width: 3%" scope="col">19</th>
-      <th style="width: 3%" scope="col">20</th>
-      <th style="width: 3%" scope="col">21</th>
-      <th style="width: 3%" scope="col">22</th>
-      <th style="width: 3%" scope="col">23</th>
-      <th style="width: 3%" scope="col">24</th>
-      <th style="width: 3%" scope="col">25</th>
-      <th style="width: 3%" scope="col">26</th>
-      <th style="width: 3%" scope="col">27</th>
-      <th style="width: 3%" scope="col">28</th>
-      <th style="width: 3%" scope="col">29</th>
-      <th style="width: 3%" scope="col">30</th>
-      <th style="width: 3%" scope="col">31</th>
+      <th style="width: 3%" scope="col" {% if today == '1'%} class="bg-info" {% endif %} >1</th>
+      <th style="width: 3%" scope="col" {% if today == '2'%} class="bg-info" {% endif %} >2</th>
+      <th style="width: 3%" scope="col" {% if today == '3'%} class="bg-info" {% endif %} >3</th>
+      <th style="width: 3%" scope="col" {% if today == '4'%} class="bg-info" {% endif %} >4</th>
+      <th style="width: 3%" scope="col" {% if today == '5'%} class="bg-info" {% endif %} >5</th>
+      <th style="width: 3%" scope="col" {% if today == '6'%} class="bg-info" {% endif %} >6</th>
+      <th style="width: 3%" scope="col" {% if today == '7'%} class="bg-info" {% endif %} >7</th>
+      <th style="width: 3%" scope="col" {% if today == '8'%} class="bg-info" {% endif %} >8</th>
+      <th style="width: 3%" scope="col" {% if today == '9'%} class="bg-info" {% endif %} >9</th>
+      <th style="width: 3%" scope="col" {% if today == '10'%} class="bg-info" {% endif %} >10</th>
+      <th style="width: 3%" scope="col" {% if today == '11'%} class="bg-info" {% endif %} >11</th>
+      <th style="width: 3%" scope="col" {% if today == '12'%} class="bg-info" {% endif %} >12</th>
+      <th style="width: 3%" scope="col" {% if today == '13'%} class="bg-info" {% endif %} >13</th>
+      <th style="width: 3%" scope="col" {% if today == '14'%} class="bg-info" {% endif %} >14</th>
+      <th style="width: 3%" scope="col" {% if today == '15'%} class="bg-info" {% endif %} >15</th>
+      <th style="width: 3%" scope="col" {% if today == '16'%} class="bg-info" {% endif %} >16</th>
+      <th style="width: 3%" scope="col" {% if today == '17'%} class="bg-info" {% endif %} >17</th>
+      <th style="width: 3%" scope="col" {% if today == '18'%} class="bg-info" {% endif %} >18</th>
+      <th style="width: 3%" scope="col" {% if today == '19'%} class="bg-info" {% endif %} >19</th>
+      <th style="width: 3%" scope="col" {% if today == '20'%} class="bg-info" {% endif %} >20</th>
+      <th style="width: 3%" scope="col" {% if today == '21'%} class="bg-info" {% endif %} >21</th>
+      <th style="width: 3%" scope="col" {% if today == '22'%} class="bg-info" {% endif %} >22</th>
+      <th style="width: 3%" scope="col" {% if today == '23'%} class="bg-info" {% endif %} >23</th>
+      <th style="width: 3%" scope="col" {% if today == '24'%} class="bg-info" {% endif %} >24</th>
+      <th style="width: 3%" scope="col" {% if today == '25'%} class="bg-info" {% endif %} >25</th>
+      <th style="width: 3%" scope="col" {% if today == '26'%} class="bg-info" {% endif %} >26</th>
+      <th style="width: 3%" scope="col" {% if today == '27'%} class="bg-info" {% endif %} >27</th>
+      <th style="width: 3%" scope="col" {% if today == '28'%} class="bg-info" {% endif %} >28</th>
+      <th style="width: 3%" scope="col" {% if today == '29'%} class="bg-info" {% endif %} >29</th>
+      <th style="width: 3%" scope="col" {% if today == '30'%} class="bg-info" {% endif %} >30</th>
+      <th style="width: 3%" scope="col" {% if today == '31'%} class="bg-info" {% endif %} >31</th>
 
     </tr>
   </thead>
